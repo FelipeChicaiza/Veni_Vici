@@ -56,9 +56,17 @@ function App() {
     }
   }
 
-  const buttons = banList.map((d)=>{
-    return <button className='banned-buttons' key={d}>{d}</button>;
-  })
+  const removeFromBanList = (item) => {
+    setBanList(banList.filter((d) => d !== item));
+  };
+
+  const buttons = banList.map((d) => {
+    return (
+      <button className='banned-buttons' key={d} onClick={() => removeFromBanList(d)}>
+        {d}
+      </button>
+    );
+  });
 
   return (
     <div className='App'>
